@@ -1,0 +1,18 @@
+# Uses autossh to connect back to a CnC server so that the remote device
+# can be accessed via a local port on the CnC server <remote_port>
+# On debian releases autossh can be aded with "apt -y install autossh"
+# this script should reside in /etc/systemd/system/autossh.service
+# Then run "systemctl enable autossh"
+
+[Unit]
+Description=AutoSSH Tunnel
+After=network.target
+
+[Service]
+User=root
+ExecStart=/usr/bin/autossh -M 0 -o "ServerAliveInterval 60" -o "ServerAliveCountMax 3" -NR <remote_port>:localhost:22<account>@<cnc_server>
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
