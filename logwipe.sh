@@ -5,7 +5,7 @@ usage(){
 	echo "-h - This help message"
 	echo "-s - Shut down syslog daemon"
 	echo "-H - Wipe history and stop history function"
-	echo "-l - Wipe recent log file
+	echo "-l - Wipe recent log file"
 	}
 
 # Set colors
