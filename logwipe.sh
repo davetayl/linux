@@ -1,5 +1,13 @@
 #!/bin/bash
 
+usage(){
+	echo "Usage: logwipe.sh -hsHl"
+	echo "-h - This help message"
+	echo "-s - Shut down syslog daemon"
+	echo "-H - Wipe history and stop history function"
+	echo "-l - Wipe recent log file
+	}
+
 # Set colors
 red=$(tput setaf 1)
 green=$(tput setaf 2)
@@ -30,11 +38,7 @@ while getopts ":hsHl" arg;
                 ;;
 		# usage info
                 * )
-                  echo "Usage: logwipe.sh -hsHl"
-                  echo "-h - This help message"
-                  echo "-s - Shut down syslog daemon"
-                  echo "-H - Wipe history and stop history function"
-                  echo "-l - Wipe recent log files"
+		  usage
 		  exit 0
                 ;;
         	esac
