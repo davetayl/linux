@@ -8,13 +8,21 @@ usage(){
 	echo "-l - Wipe recent log file"
 	}
 
+# Test for switches
+	if [ ! $@ ] ; then
+	usage
+	exit 0
+	fi
+
+
+
 # Set colors
 red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
 
 # Script for wiping log files
-while getopts ":hsHl" arg;
+while getopts ":sHlh" arg;
 	do
         case "${arg}" in
                 # Take out remote logging
@@ -25,7 +33,7 @@ while getopts ":hsHl" arg;
                 ;;
                 # Sort out history
                 H )
-                  export HISTSIZE="0"
+                  export HISTSIZE=0
 		  echo HISTSIZE=0>>/root/.bashrc
                   echo "$green History stopped and wiped $reset"
                 ;;
