@@ -1,11 +1,16 @@
 #!/bin/bash
 
+# Create Usage function
 usage(){
-	echo "Usage: logwipe.sh -hsHl"
+	echo -e "\n\n"
+	echo "Usage: . ./logwipe.sh -hsHl"
+	echo "--------------------------------------------"
 	echo "-h - This help message"
 	echo "-s - Shut down syslog daemon"
 	echo "-H - Wipe history and stop history function"
 	echo "-l - Wipe recent log file"
+	echo " Take note of the leading . required to for setting local history"  
+	echo -e "\n"
 	}
 
 # Test for switches
